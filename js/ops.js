@@ -500,7 +500,7 @@ function animoVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos Totales por Factor de Motivación', 
+                    text: 'Datos agrupados por factor de motivación', 
                     font: {
                         size: 24,
                     },
@@ -595,3 +595,140 @@ $("#btnAnimoVacunaPalabras").on("click", function(){
     animoVacunaPalabras(document.querySelector('#animoVacunaPalabras').getContext('2d'));
     
 });
+
+function razonNoVacunaTotales(ctx){
+    const chart = new Chart(ctx, {
+        type: 'bar', 
+        plugins: [ChartDataLabels],
+        data: {                 
+            font: {
+                size:14,
+            },       
+            labels: ['No tengo mucho conocimiento/información sobre las vacunas', 'Prefiero esperar/corroborar la efectividad “Prefiero que hagan más estudios”', 'No creo en que haya esa enfermedad', 'No confío en la vacuna (pienso que No funciona)', 'Estoy en contra de las vacunas en general', 'Tengo miedo a la aguja/jeringa', 'Me aconsejaron No vacunarme', 'En las Redes Sociales aconsejan no vacunarse', 'Estoy tomando medicinas naturales','Estoy tomando dióxido de cloro','No veo la necesidad de vacunarme','Me puede causar otras enfermedades','He visto efectos negativos (en familiares/ amigos vacunados) que pienso es debido a las vacunas','Sociales/Culturales','Mi religión no me permite','No tengo tiempo','No sé cuándo ni dónde vacunarme','Estoy embarazada','Tengo una enfermedad de base (crónica)','Otras'],
+            datasets: [                       
+            {   
+                label: 'Casos',
+                backgroundColor:  'rgba(54, 162, 235,.8)',
+                borderColor: 'rgba(54, 162, 235,1)',
+                borderWidth: 1,
+                data: [166,130,9,89,8,29,28,8,31,5,17,14,43,6,4,238,15,20,19,82]          
+                
+            },            
+            ]
+        },
+         options: {             
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: Math.round,
+                    font: {
+                        size:14,
+                    },
+                    formatter: (value, ctx) => {                   
+                    let percentage = (value*100 / (656)).toFixed(2)+"%";
+                    return percentage;
+                    },
+                }, 
+                title: {
+                    display: true,
+                    text: 'Datos agrupados por razón de abstención', 
+                    font: {
+                        size: 24,
+                    },
+                    padding: 30,
+                },
+                legend: {
+                    position: "bottom"
+                }
+            },
+            scales:{                                                                             
+                xAxis:{                
+                    display: false,                                  
+                    grid: {
+                        display: false,                                    
+                    }                                  
+                },
+                yAxis:{                                
+                    display: true,
+                    grid: {
+                        display: true,
+                    }                            
+                },
+            },          
+        }                    
+    })
+    //$("#animoVacunaPalabras").hide();
+}
+
+
+
+
+function conocimientosVacunaTotales(ctx){
+    const chart = new Chart(ctx, {
+        type: 'bar', 
+        plugins: [ChartDataLabels],
+        data: {                 
+            font: {
+                size:14,
+            },       
+            labels: ['Es algo que me ayuda a evitar el contagio del COVID', 'Te introducen virus al cuerpo (son virus muertos)', 'Son anticuerpos/defensas', 'Es un negocio', 'Sirve para curar la enfermedad del COVID-19', 'Es peor porque enfermas con más gravedad el COVID-19', 'Te colocan un chip', 'Otras', 'No se nada','No responde'],
+            datasets: [                       
+            {   
+                label: 'Casos',
+                backgroundColor:  'rgba(255, 99, 132,.5)',                
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 1,
+                data: [625,274,882,35,25,67,25,110,135,8]          
+                
+            },            
+            ]
+        },
+         options: {             
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: Math.round,
+                    font: {
+                        size:14,
+                    },
+                    formatter: (value, ctx) => {                   
+                    let percentage = (value*100 / (2186)).toFixed(2)+"%";
+                    return percentage;
+                    },
+                }, 
+                title: {
+                    display: true,
+                    text: 'Datos agrupados por conocimiento', 
+                    font: {
+                        size: 24,
+                    },
+                    padding: 30,
+                },
+                legend: {
+                    position: "bottom"
+                }
+            },
+            scales:{                                                                             
+                xAxis:{                
+                    display: false,                                  
+                    grid: {
+                        display: false,                                    
+                    }                                  
+                },
+                yAxis:{                                
+                    display: true,
+                    grid: {
+                        display: true,
+                    }                            
+                },
+            },          
+        }                    
+    })
+    //$("#animoVacunaPalabras").hide();
+}
