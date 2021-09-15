@@ -221,15 +221,14 @@ function enfermoCovidCiudades(ctx){
 function enfermoCovidTotales(ctx){
     
                 const chart = new Chart(ctx, {
-                    type: 'bar', 
+                    type: 'doughnut', 
                     plugins: [ChartDataLabels],
                     data: {                        
                         labels: ['Si enfermó', 'No enfermó', 'No sabe'],
                         datasets: [
                         {
                             label: '# de casos',
-                            backgroundColor:  'rgba(54, 162, 235, 0.5)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)','rgba(255, 159, 64, 1)'],
                             data: [1017,906,263],
                         },                                                
                         ]
@@ -238,14 +237,11 @@ function enfermoCovidTotales(ctx){
                     
                      options: {              
                            
-                        responsive: true,
+                        responsive: false,
                         plugins: {
-                            datalabels: {
-                                anchor: 'end',
-                                align: 'top',
-                                formatter: Math.round,
+                            datalabels: {                                
                                 font: {
-                                    size:10,
+                                    size:16,
                                 },
                                 formatter: (value, ctx) => {
                                     let sum = 0;
@@ -486,6 +482,81 @@ $("#btnSeVacunoTotales").on("click", function(){
    
     
 });
+
+function animoVacunaTotales(ctx){
+    const chart = new Chart(ctx, {
+        type: 'bar', 
+        plugins: [ChartDataLabels],
+        data: {                        
+            labels: ['Miedo a contagiarse', 'Enfermedad “de base”', 'Miedo a llegar al hospital', 'Riesgo para la familia', 'Falta de dinero', 'Requisito trabajo/estudio', 'Requisito tramites/viajes/eventos', 'Responsabilidad Social', 'Otras'],
+            datasets: [                       
+            {
+                label: 'Casos',
+                backgroundColor:  'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: [677,53,216,756,51,307,75,156,54]          
+                
+            },            
+            ]
+        },
+
+        
+         options: {              
+               
+            responsive: true,
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: Math.round,
+                    font: {
+                        size:10,
+                    },
+                    formatter: (value, ctx) => {
+
+                    
+                    let percentage = (value*100 / (1530)).toFixed(1)+"%";
+                    return percentage;
+                    },
+                }, 
+                title: {
+                    display: true,
+                    text: 'Datos Totales por Factor de Motivación', 
+                    font: {
+                        size: 24,
+                    },
+                    padding: 30,
+                },
+                legend: {
+                    position: "bottom"
+                }
+            },
+        scales: {
+        yAxes: [{
+            ticks: {
+            beginAtZero: true,
+            }
+        }]
+        },                        
+       
+            /*scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true
+                }
+            }*/
+            elements: {
+
+            color: 'black'
+        }
+        }                    
+    })
+    $("#animoVacunaPalabras").hide();
+}
+
 
 function animoVacunaPalabras(ctx){
     

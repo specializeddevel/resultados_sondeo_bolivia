@@ -123,8 +123,11 @@
 
 <div id="enfermoCovidCiudadesDiv" height="500"><canvas
      class="col-md-12 text-center font-bold leading-tight text-2xl" id="enfermoCovidCiudades" ></canvas></div>
-<div id="enfermoCovidTotalesDiv" height="500"  ><canvas
-        class="col-md-12 text-center font-bold leading-tight text-2xl" id="enfermoCovidTotales"></canvas></div>
+     <div class="row">           
+        <div class=" col-md-4"></div>
+        <div id="enfermoCovidTotalesDiv" height="500"  ><canvas
+        class="text-center font-bold leading-tight text-2xl" id="enfermoCovidTotales" margin="auto"  width="450" height="450"></canvas></div>
+    </div>
     <br>
     <div class="row" >
         <div class=" col-md-1">
@@ -250,7 +253,7 @@
             varonesMujeresChart(document.querySelector('#graficaBarras').getContext('2d'))
             enfermoCovidCiudades(document.querySelector('#enfermoCovidCiudades').getContext('2d'))
             seVacunoCiudades(document.querySelector('#seVacunoCiudades').getContext('2d'))
-            
+            animoVacunaTotales(document.querySelector('#animoVacunaTotales').getContext('2d'))
              
         </script>        
     </body>        
