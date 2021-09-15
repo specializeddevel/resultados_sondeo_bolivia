@@ -1,0 +1,122 @@
+        .bg-dark1 {
+
+            background: #41B6E6;
+
+
+        }
+
+        .border-dark1 {
+
+            border-color: #41B6E6;
+
+        }
+
+        .hover\:border-dark1:hover {
+
+            border-color: #41B6E6;
+
+        }
+
+        .bg-dark2 {
+
+            background: #41B6E6;
+
+        }
+
+        .border-dark2 {
+
+            border-color: #41B6E6;
+
+        }
+
+        .hover\:border-dark2:hover {
+
+            border-color: #41B6E6;
+
+        }
+
+        .bg-dark3 {
+
+            background: #41B6E6;
+
+        }
+
+        .border-dark3 {
+
+            border-color: #41B6E6;
+
+        }
+
+        .hover\:border-dark3:hover {
+
+            border-color: #41B6E6;
+
+        }
+
+        .border-light1 {
+            border-color: #FFD100;
+        }
+
+        .bg-light1 {
+            background: #FFD100;
+        }
+
+        .bg-light1.hover-dark:hover {
+            background: #ffda33;
+        }
+
+        .text-light1 {
+            color: #FFD100;
+        }
+
+        .bg-light2 {
+            background: #5eb3e0;
+        }
+
+        .bg-light2.hover-dark:hover {
+            background: #89c7e8;
+        }
+
+        .ligth-black {
+            background: lighten(#000000, 10%);
+        }
+
+        .slideout-menu {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 230px;
+            min-height: 100vh;
+            will-change: transform;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            z-index: 0;
+            display: none;
+        }
+
+        .slideout-menu-left {
+            left: 0;
+        }
+
+        .slideout-menu-right {
+            right: 0;
+        }
+
+        .slideout-panel {
+            position: relative;
+            z-index: 1;
+            will-change: transform;
+            background-color: #FFF;
+            /* A background-color is required */
+            min-height: 100vh;
+        }
+
+        .slideout-open,
+        .slideout-open body,
+        .slideout-open .slideout-panel {
+            overflow: hidden;
+        }
+
+        .slideout-open .slideout-menu {
+            display: block;
+        }
