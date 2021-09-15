@@ -56,20 +56,7 @@ function varonesMujeresChart(ctx){
                                 font: {
                                     size:12,
                                 },
-                                formatter: (value, ctx) => {
-                                    let sum = 0;
-                                    let dataArr = ctx.chart.data.datasets[0].data;
-                                    dataArr.map(data => {
-                                    sum += data;
-                                });
-                                    let sum2 = 0;
-                                    let dataArr2 = ctx.chart.data.datasets[1].data;
-                                    dataArr2.map(data => {
-                                    sum2 += data;
-                                });
-                                let percentage = (value*100 / (sum+sum2)).toFixed(1)+"%";
-                                return percentage;
-                                },
+                                
                                 color: 'black',
                             }, 
                             title: {
