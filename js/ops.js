@@ -732,3 +732,72 @@ function conocimientosVacunaTotales(ctx){
     })
     //$("#animoVacunaPalabras").hide();
 }
+
+
+
+function preocupacionVacunaTotales(ctx){
+    const chart = new Chart(ctx, {
+        type: 'bar', 
+        plugins: [ChartDataLabels],
+        data: {                 
+            font: {
+                size:14,
+            },       
+            labels: ['Que la vacuna no sea segura para mi salud','No hay suficiente información sobre efectos secundarios y consecuencias a la larga','Tengo confusión sobre que vacuna es mejor','No hay vacunas suficientes', 'Hay mucho tiempo de espera para vacunarse', 'Desorganización en los puntos de vacunación', 'No lo veo necesario para prevención', 'Que las vacunas no estén bien conservadas', 'Que me provoque dolor después de vacunarme', 'Que el vacunador no tenga experiencia', 'Otras'],
+            datasets: [                       
+            {   
+                label: 'Casos',
+                backgroundColor:  'rgba(255, 159, 64, 0.5)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1,
+                data: [622,819,204,157,98,78,27,46,95,23,92]          
+                
+            },            
+            ]
+        },
+         options: {             
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: Math.round,
+                    font: {
+                        size:14,
+                    },
+                    formatter: (value, ctx) => {                   
+                    let percentage = (value*100 / (1681)).toFixed(2)+"%";
+                    return percentage;
+                    },
+                }, 
+                title: {
+                    display: true,
+                    text: 'Datos agrupados por factor de preocupación', 
+                    font: {
+                        size: 24,
+                    },
+                    padding: 30,
+                },
+                legend: {
+                    position: "bottom"
+                }
+            },
+            scales:{                                                                             
+                xAxis:{                
+                    display: false,                                  
+                    grid: {
+                        display: false,                                    
+                    }                                  
+                },
+                yAxis:{                                
+                    display: true,
+                    grid: {
+                        display: true,
+                    }                            
+                },
+            },          
+        }                    
+    })
+    //$("#animoVacunaPalabras").hide();
+}
