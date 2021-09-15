@@ -1,5 +1,5 @@
 
-
+Chart.defaults.color = 'black'                              
 new Morris.Donut({
     // ID of the element in which to draw the chart.
     element: 'primerGrafico2',
@@ -27,7 +27,7 @@ function varonesMujeresChart(ctx){
                     type: 'bar', 
                     plugins: [ChartDataLabels],
                     data: {                        
-                        labels: ['Sucre', 'La Paz', 'El Alto', 'Cochabamba', 'Oruro', 'Potosí', 'Tarija', 'Santa Cruz', 'Trinidad', 'Cobija'],
+                        labels: ['Sucre', 'La Paz', 'El Alto', 'Cochabamba', 'Oruro', 'Potosí', 'Tarija', 'Santa Cruz', 'Trinidad', 'Cobija'],                        
                         datasets: [
                         {
                             label: 'Hombres',
@@ -46,19 +46,17 @@ function varonesMujeresChart(ctx){
                         },
                     ]
                     },
-                     options: {              
-                           
-                        responsive: true,
+                     options: {
+                        responsive: true,               
                         plugins: {
                             datalabels: {
                                 anchor: 'end',
                                 align: 'top',
                                 formatter: Math.round,
                                 font: {
-                                    size:10,
+                                    size:12,
                                 },
                                 formatter: (value, ctx) => {
-
                                     let sum = 0;
                                     let dataArr = ctx.chart.data.datasets[0].data;
                                     dataArr.map(data => {
@@ -72,42 +70,36 @@ function varonesMujeresChart(ctx){
                                 let percentage = (value*100 / (sum+sum2)).toFixed(1)+"%";
                                 return percentage;
                                 },
+                                color: 'black',
                             }, 
                             title: {
-                                display: true,
-                                text: 'Distribución de la población por Género', 
+                                display: true,                                text: 'Distribución de la población por Género', 
+
                                 font: {
                                     size: 24,
                                 },
                                 padding: {
                                     top: 30,
-                                    bottom: 10
+                                    bottom: 20
                                 }
                             },
                             legend: {
                                 position: "bottom"
                             }
                         },
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                        beginAtZero: true,
-                        }
-                    }]
-                    },                        
-                   
-                        /*scales: {
-                            x: {
-                                stacked: true
+                        scales:{                                                                             
+                            xAxis:{                                                  
+                                grid: {
+                                    display: true,                                    
+                                }                                  
                             },
-                            y: {
-                                stacked: true
-                            }
-                        }*/
-                        elements: {
- 
-                        color: 'black'
-                    }
+                            yAxis:{                                
+                                display: false,
+                                grid: {
+                                    display: false,
+                                }                            
+                            },
+                        },
                     }                    
                 })
                  
@@ -158,7 +150,7 @@ function enfermoCovidCiudades(ctx){
                                 align: 'top',
                                 formatter: Math.round,
                                 font: {
-                                    size:10,
+                                    size:12,
                                 },
                                 formatter: (value, ctx) => {
 
@@ -193,13 +185,19 @@ function enfermoCovidCiudades(ctx){
                                 position: "bottom"
                             }
                         },
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                        beginAtZero: true,
-                        }
-                    }]
-                    },                        
+                        scales:{                                                                             
+                            xAxis:{                                                  
+                                grid: {
+                                    display: true,                                    
+                                }                                  
+                            },
+                            yAxis:{                                
+                                display: false,
+                                grid: {
+                                    display: false,
+                                }                            
+                            },
+                        },                        
                    
                         /*scales: {
                             x: {
@@ -241,7 +239,7 @@ function enfermoCovidTotales(ctx){
                         plugins: {
                             datalabels: {                                
                                 font: {
-                                    size:16,
+                                    size:18,
                                 },
                                 formatter: (value, ctx) => {
                                     let sum = 0;
@@ -249,7 +247,7 @@ function enfermoCovidTotales(ctx){
                                     dataArr.map(data => {
                                     sum += data;
                                 });
-                                let percentage = (value*100 / (sum)).toFixed(1)+"%";
+                                let percentage = (value*100 / (sum)).toFixed(2)+"%";
                                 return percentage;
                                 },
                             }, 
@@ -265,26 +263,20 @@ function enfermoCovidTotales(ctx){
                                 position: "bottom"
                             }
                         },
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                        beginAtZero: true,
-                        }
-                    }]
-                    },                        
-                   
-                        /*scales: {
-                            x: {
-                                stacked: true
+                        scales:{                                                                             
+                            xAxis:{                                                  
+                                display: false,
+                                grid: {
+                                    display: false,                                    
+                                }                                  
                             },
-                            y: {
-                                stacked: true
-                            }
-                        }*/
-                        elements: {
- 
-                        color: 'black'
-                    }
+                            yAxis:{                                
+                                display: false,
+                                grid: {
+                                    display: false,
+                                }                            
+                            },
+                        },                                       
                     }                    
                 })
                 
@@ -339,7 +331,7 @@ function seVacunoCiudades(ctx){
                                 align: 'top',
                                 formatter: Math.round,
                                 font: {
-                                    size:10,
+                                    size:13,
                                 },
                                 formatter: (value, ctx) => {
 
@@ -353,7 +345,7 @@ function seVacunoCiudades(ctx){
                                     dataArr2.map(data => {
                                     sum2 += data;
                                 });                                
-                                let percentage = (value*100 / (sum+sum2)).toFixed(1)+"%";
+                                let percentage = (value*100 / (sum+sum2)).toFixed(2)+"%";
                                 return percentage;
                                 },
                             }, 
@@ -369,26 +361,19 @@ function seVacunoCiudades(ctx){
                                 position: "bottom"
                             }
                         },
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                        beginAtZero: true,
-                        }
-                    }]
-                    },                        
-                   
-                        /*scales: {
-                            x: {
-                                stacked: true
+                        scales:{                                                                             
+                            xAxis:{                                                  
+                                grid: {
+                                    display: true,                                    
+                                }                                  
                             },
-                            y: {
-                                stacked: true
-                            }
-                        }*/
-                        elements: {
- 
-                        color: 'black'
-                    }
+                            yAxis:{                                
+                                display: false,
+                                grid: {
+                                    display: false,
+                                }                            
+                            },
+                        },            
                     }                    
                 })
                 $("#seVacunoTotales").hide();
@@ -420,7 +405,7 @@ function seVacunoTotales(ctx){
 
                                 formatter: Math.round,
                                 font: {
-                                    size:15,
+                                    size:18,
                                 },
                                 formatter: (value, ctx) => {
                                     let sum = 0;
@@ -428,7 +413,7 @@ function seVacunoTotales(ctx){
                                     dataArr.map(data => {
                                     sum += data;
                                 });
-                                let percentage = (value*100 / (sum)).toFixed(1)+"%";
+                                let percentage = (value*100 / (sum)).toFixed(2)+"%";
                                 return percentage;
                                 },
                             }, 
@@ -444,26 +429,20 @@ function seVacunoTotales(ctx){
                                 position: "bottom"
                             }
                         },
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                        beginAtZero: true,
-                        }
-                    }]
-                    },                        
-                   
-                        /*scales: {
-                            x: {
-                                stacked: true
+                        scales:{                                                                             
+                            xAxis:{                                                  
+                                display: false,
+                                grid: {
+                                    display: false,                                    
+                                }                                  
                             },
-                            y: {
-                                stacked: true
-                            }
-                        }*/
-                        elements: {
- 
-                        color: 'black'
-                    }
+                            yAxis:{                                
+                                display: false,
+                                grid: {
+                                    display: false,
+                                }                            
+                            },
+                        },                           
                     }                    
                 })
                 
@@ -487,10 +466,13 @@ function animoVacunaTotales(ctx){
     const chart = new Chart(ctx, {
         type: 'bar', 
         plugins: [ChartDataLabels],
-        data: {                        
-            labels: ['Miedo a contagiarse', 'Enfermedad “de base”', 'Miedo a llegar al hospital', 'Riesgo para la familia', 'Falta de dinero', 'Requisito trabajo/estudio', 'Requisito tramites/viajes/eventos', 'Responsabilidad Social', 'Otras'],
+        data: {                 
+            font: {
+                size:14,
+            },       
+            labels: ['Tengo miedo a contagiarme', 'Tengo enfermedad “de base” (crónica)', 'Tengo miedo llegar al hospital y morir', 'No quiero poner en riesgo a mi familia', 'No tengo dinero para pagar médicos, medicamentos y otros', 'Es requisito/obligación para mi trabajo/estudio', 'Es requisito para tramites, viajes, eventos', 'Pienso que si todos estamos vacunados, vamos a frenar la pandemia', 'Otras'],
             datasets: [                       
-            {
+            {   
                 label: 'Casos',
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
@@ -500,23 +482,19 @@ function animoVacunaTotales(ctx){
             },            
             ]
         },
-
-        
-         options: {              
-               
+         options: {             
+            indexAxis: 'y',
             responsive: true,
             plugins: {
                 datalabels: {
-                    anchor: 'end',
-                    align: 'top',
+                    anchor: 'center',
+                    align: 'center',
                     formatter: Math.round,
                     font: {
-                        size:10,
+                        size:14,
                     },
-                    formatter: (value, ctx) => {
-
-                    
-                    let percentage = (value*100 / (1530)).toFixed(1)+"%";
+                    formatter: (value, ctx) => {                   
+                    let percentage = (value*100 / (1530)).toFixed(2)+"%";
                     return percentage;
                     },
                 }, 
@@ -532,26 +510,20 @@ function animoVacunaTotales(ctx){
                     position: "bottom"
                 }
             },
-        scales: {
-        yAxes: [{
-            ticks: {
-            beginAtZero: true,
-            }
-        }]
-        },                        
-       
-            /*scales: {
-                x: {
-                    stacked: true
+            scales:{                                                                             
+                xAxis:{                
+                    display: false,                                  
+                    grid: {
+                        display: false,                                    
+                    }                                  
                 },
-                y: {
-                    stacked: true
-                }
-            }*/
-            elements: {
-
-            color: 'black'
-        }
+                yAxis:{                                
+                    display: true,
+                    grid: {
+                        display: true,
+                    }                            
+                },
+            },          
         }                    
     })
     $("#animoVacunaPalabras").hide();

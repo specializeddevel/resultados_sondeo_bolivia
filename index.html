@@ -25,15 +25,14 @@
     </head>
 <body>
 
-<div class="container text-2xl text-black font-bold leading-tight italic hover-parent text-center" >
-    Percepciones ciudadanas sobre la vacunación contra la COVID- 19 en Bolivia.
+<div class="container text-2xl text-black font-bold leading-tight hover-parent text-center" >
+    Percepciones ciudadanas sobre la vacunación contra la COVID- 19 en Bolivia
     <br>
-    Encuesta determinística de preferencia sector informal y formal.
+    Sondeo de opinión en ciudades capitales de Bolivia - sectores formal e informal
     <br>
     Agosto-septiembre 2021
     <br>
-    <hr>
-    <br>
+    <hr>    
     <div class="row">
         <div class='col-md-7 bg-dark1 text-white flex-1'>
             <div class='md:py-10 p-home h-full flex-center-y'>
@@ -90,9 +89,10 @@
         </div>
         <div class="col-md-1"></div>
         <div id="map" class="col-md-4"></div>        
-        <canvas class="col-md-8 text-center font-bold leading-tight text-2xl" id="graficaBarras" height="300"></canvas>
+        <div class="row"></div>
+        <canvas class="col-md-8 text-center font-bold leading-tight text-2xl" id="graficaBarras" height="360"></canvas>
         <div class="col-md-4">
-            <div class="text-2xl text-black font-bold leading-tight italic hover-parent text-center"><br><br></div>
+            <div class="row-start-5"><br><br><br></div>
             <div class="align-content-sm-center" id="primerGrafico2"></div>
         </div>
     </div>
@@ -113,8 +113,10 @@
                 <div class='text-3xl font-alt font-bold leading-tight italic hover-parent text-left'>
                     ¿Usted enfermó o cree que ha enfermado de COVID-19?
                 </div>
-                <div class='mt-4 text-left text-sm text-black'>
-                    2.186 encuestados (as).
+                <div class='mt-4 text-left text-sm text-lg-right text-black'>                    
+                    Los porcentajes mostrados en la gráfica están calculados sobre el total de encuestados
+                    <br>
+                    2.186 encuestados (as)
                 </div>
             </div>
         </div>
@@ -124,9 +126,9 @@
 <div id="enfermoCovidCiudadesDiv" height="500"><canvas
      class="col-md-12 text-center font-bold leading-tight text-2xl" id="enfermoCovidCiudades" ></canvas></div>
      <div class="row">           
-        <div class=" col-md-4"></div>
+        <div class=" col-md-3"></div>
         <div id="enfermoCovidTotalesDiv" height="500"  ><canvas
-        class="text-center font-bold leading-tight text-2xl" id="enfermoCovidTotales" margin="auto"  width="450" height="450"></canvas></div>
+        class="text-center font-bold leading-tight text-2xl" id="enfermoCovidTotales" margin="auto" width="550"></canvas></div>
     </div>
     <br>
     <div class="row" >
@@ -162,7 +164,9 @@
                     <div class='text-3xl font-alt font-bold leading-tight italic hover-parent text-left'>
                         ¿Ya se ha vacunado contra el COVID-19?
                     </div>
-                    <div class='mt-4 text-left text-sm text-black'>
+                    <div class='mt-4 text-left text-sm text-lg-right text-black'>                    
+                        Los porcentajes mostrados en la gráfica están calculados sobre el total de encuestados
+                        <br>
                         2.186 encuestados (as).
                     </div>
                 </div>
@@ -173,21 +177,21 @@
     <div id="seVacunoCiudadesDiv" height="500"><canvas 
             class="col-md-12 text-center font-bold leading-tight text-2xl" id="seVacunoCiudades"></canvas></div>
     <div class="row">           
-        <div class=" col-md-4"></div>
-        <div id="seVacunoTotalesDiv" class="text-center font-bold leading-tight text-2xl"></div><canvas class=""id="seVacunoTotales" margin="auto"  width="450" height="450" ></canvas>
+        <div class=" col-md-3"></div>
+        <div id="seVacunoTotalesDiv" class="text-center font-bold leading-tight text-2xl"></div><canvas class=""id="seVacunoTotales" margin="auto"  width="550"></canvas>
     </div>
     <br>
     <div class="row " >
-        <div class=" col-md-3">
+        <div class=" col-md-1">
     
         </div>
-        <div class=" col-md-2">
+        <div class=" col-md-4">
             <button type="button" id="btnSeVacunoCiudades" class="btn btn-primary">Ver por ciudad</button>
         </div>
         <div class=" col-md-2">
     
         </div>
-        <div class=" col-md-3">
+        <div class=" col-md-4">
             <button type="button" id="btnSeVacunoTotales" class="btn btn-primary">Ver Totales</button>
         </div>
     </div>
@@ -209,7 +213,9 @@
                         <div class='text-3xl font-alt font-bold leading-tight italic hover-parent text-left'>
                             ¿Qué le animó a vacunarse contra el COVID-19?
                         </div>
-                        <div class='mt-4 text-left text-sm text-black'>
+                        <div class='mt-4 text-left text-sm text-lg-right text-black'>                    
+                            Los porcentajes mostrados en la gráfica están calculados sobre el total de encuestados
+                            <br>
                             1.530 encuestados (as) (ya vacunados).
                         </div>
                     </div>
@@ -228,16 +234,16 @@
     </div>
     <br>
     <div class="row ">
-        <div class=" col-md-3">
+        <div class=" col-md-1">
     
         </div>
-        <div class=" col-md-2">
+        <div class=" col-md-4">
             <button type="button" id="btnAnimoVacunaTotales" class="btn btn-primary">Ver Totales</button>
         </div>
         <div class=" col-md-2">
     
         </div>
-        <div class=" col-md-3">
+        <div class=" col-md-4">
             <button type="button" id="btnAnimoVacunaPalabras" class="btn btn-primary">Ver Nube de palabras</button>
         </div>
     </div>
