@@ -34,14 +34,14 @@ function varonesMujeresChart(ctx){
                             backgroundColor: 'rgba(54, 162, 235, 0.5)',
                             borderColor:   'rgb(54, 162, 235)',
                             borderWidth: 1,
-                            data: [90,149,154,135,89,93,88,179,71,59],
+                            data: [8.1,13.5,13.9,12.2,8,8.4,7.9,16.2,6.4,5.3],
                         },                        
                         {
                             label: 'Mujeres',
                             backgroundColor:  'rgba(255, 99, 132, 0.5)',
                             borderColor: 'rgb(255, 99, 132)',
                             borderWidth: 1,
-                            data: [91,152,155,140,85,84,80,173,72,47],          
+                            data: [8.4,14.1,14.4,13,7.9,7.8,7.4,16,6.7,4.4],          
                             
                         },
                     ]
@@ -54,14 +54,14 @@ function varonesMujeresChart(ctx){
                                 align: 'top',
                                 formatter: Math.round,
                                 font: {
-                                    size:12,
+                                    size:11,
                                 },
-                                
+                                formatter: (val) => (`${val}%`),
                                 color: 'black',
                             }, 
                             title: {
-                                display: true,                                text: 'Distribución de la población por Género', 
-
+                                display: true,  
+                                text: 'Distribución de la población por Género', 
                                 font: {
                                     size: 24,
                                 },
@@ -106,14 +106,14 @@ function enfermoCovidCiudades(ctx){
                             backgroundColor: 'rgba(255, 99, 132, 0.5)',
                             borderColor:   'rgba(255, 99, 132, 1)',
                             borderWidth: 1,
-                            data: [85,178,119,95,92,62,71,137,129,49],
+                            data: [47.0,59.1,38.5,34.5,52.9,35.0,42.3,38.9,90.2,46.2],
                         },                        
                         {
                             label: 'No enfermó',
                             backgroundColor:  'rgba(75, 192, 192, 0.5)',
                             borderColor: 'rgba(75, 192, 192, 1)',
                             borderWidth: 1,
-                            data: [75,89,119,164,58,90,69,176,12,54],          
+                            data: [41.4,29.6,38.5,59.6,33.3,50.8,41.1,50,8.4,50.9],          
                             
                         },
                         {
@@ -121,7 +121,7 @@ function enfermoCovidCiudades(ctx){
                             backgroundColor:  'rgba(255, 159, 64, 0.5)',
                             borderColor: 'rgba(255, 159, 64, 1)',
                             borderWidth: 1,
-                            data: [21,34,71,16,24,25,28,39,2,3],          
+                            data: [11.6,11.3,23,5.8,13.8,14.1,16.7,11.1,1.4,2.8],          
                             
                         },
                         ]
@@ -138,15 +138,16 @@ function enfermoCovidCiudades(ctx){
                                 formatter: Math.round,
                                 font: {
                                     size:12,
-                                },                               
+                                },                  
+                                formatter: (val) => (`${val}%`),             
                             }, 
                             title: {
                                 display: true,
-                                text: 'Datos agrupados por ciudad', 
+                                //text: 'Datos agrupados por ciudad', 
                                 font: {
                                     size: 24,
                                 },
-                                padding: 30,
+                                //padding: 0,
                             },
                             legend: {
                                 position: "bottom"
@@ -205,8 +206,10 @@ function enfermoCovidTotales(ctx){
                         responsive: false,
                         plugins: {
                             datalabels: {                                
-                                font: {
-                                    size:18,
+                                color: 'white',
+                                font: {                        
+                                    size:20,
+                                    weight: 'bold',
                                 },
                                 formatter: (value, ctx) => {
                                     let sum = 0;
@@ -275,14 +278,14 @@ function seVacunoCiudades(ctx){
                             backgroundColor:  'rgba(75, 192, 192, 0.5)',
                             borderColor: 'rgba(75, 192, 192, 1)',
                             borderWidth: 1,
-                            data: [140,219,158,215,130,141,123,242,95,67],
+                            data: [77.3,72.8,51.1,78.2,74.7,79.7,73.2,68.8,66.4,63.2],
                         },                        
                         {
                             label: 'No se vacunó',
                             backgroundColor: 'rgba(255, 99, 132, 0.5)',
                             borderColor:   'rgba(255, 99, 132, 1)',                            
                             borderWidth: 1,
-                            data: [41,82,151,60,44,36,45,110,48,39],          
+                            data: [22.7,27.2,48.9,21.8,25.3,20.3,26.8,31.3,33.6,36.8],          
                             
                         },                        
                         ]
@@ -293,6 +296,11 @@ function seVacunoCiudades(ctx){
                            
                         responsive: true,
                         plugins: {
+                            deferred: {
+                                xOffset: 150,   // defer until 150px of the canvas width are inside the viewport
+                                yOffset: '50%', // defer until 50% of the canvas height are inside the viewport
+                                delay: 500      // delay of 500 ms after the canvas is considered inside the viewport
+                            },
                             datalabels: {
                                 anchor: 'end',
                                 align: 'top',
@@ -300,15 +308,15 @@ function seVacunoCiudades(ctx){
                                 font: {
                                     size:13,
                                 },
-                                
+                                formatter: (val) => (`${val}%`),             
                             }, 
                             title: {
                                 display: true,
-                                text: 'Datos agrupados por ciudad', 
+                                //text: 'Datos agrupados por ciudad', 
                                 font: {
                                     size: 24,
                                 },
-                                padding: 30,
+                                //padding: 30,
                             },
                             legend: {
                                 position: "bottom"
@@ -357,8 +365,10 @@ function seVacunoTotales(ctx){
                             datalabels: {
 
                                 formatter: Math.round,
-                                font: {
-                                    size:18,
+                                color: 'white',
+                                font: {                        
+                                    size:20,
+                                    weight: 'bold',
                                 },
                                 formatter: (value, ctx) => {
                                     let sum = 0;
@@ -453,11 +463,11 @@ function animoVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por factor de motivación', 
+                    //text: 'Datos agrupados por factor de motivación', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -587,11 +597,11 @@ function razonNoVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por razón de abstención', 
+                    //text: 'Datos agrupados por razón de abstención', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -657,11 +667,11 @@ function conocimientosVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por conocimiento', 
+                    //text: 'Datos agrupados por conocimiento', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -726,11 +736,11 @@ function preocupacionVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por factor de preocupación', 
+                    //text: 'Datos agrupados por factor de preocupación', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -768,21 +778,21 @@ function vacunaProtegeCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [134,247,226,204,136,150,98,257,113,73],
+                data: [74,82.1,73.1,74.2,78.2,84.7,58.3,73,79,68.9],
             },                        
             {   
                 label: 'Ni de acuerdo/Ni en desacuerdo',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [36,35,59,52,29,22,44,65,23,21]          
+                data: [19.9,11.6,19.1,18.9,16.7,12.4,26.2,18.5,16.1,19.8]          
             },
             {
                 label: 'En desacuerdo',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [11,19,24,19,9,5,26,30,7,12],          
+                data: [6.1,6.3,7.8,6.9,5.2,2.8,15.5,8.5,4.9,11.3],          
                 
             },            
             ]
@@ -800,15 +810,15 @@ function vacunaProtegeCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -854,8 +864,10 @@ function vacunaProtegeTotales(ctx){
             responsive: false,
             plugins: {
                 datalabels: {                                
-                    font: {
-                        size:18,
+                    color: 'white',
+                    font: {                        
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -927,21 +939,21 @@ function vacunaEvitaEnfermarCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [146,221,180,190,95,134,127,272,90,67],
+                data: [80.7,73.4,58.3,69.1,54.6,75.7,75.6,77.3,62.9,63.2],
             },                        
             {   
                 label: 'Ni de acuerdo/Ni en desacuerdo',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [27,53,80,59,48,33,23,51,40,16]          
+                data: [14.9,17.6,25.9,21.5,27.6,18.6,13.7,14.5,28,15.1]          
             },
             {
                 label: 'En desacuerdo',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [8,27,49,26,31,10,18,29,13,23],          
+                data: [4.4,9,15.9,9.5,17.8,5.6,10.7,8.2,9.1,21.7],          
                 
             },            
             ]
@@ -959,15 +971,15 @@ function vacunaEvitaEnfermarCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
-                    display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    display: false,
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1013,8 +1025,10 @@ function vacunaEvitaEnfermarTotales(ctx){
             responsive: false,
             plugins: {
                 datalabels: {                                
-                    font: {
-                        size:18,
+                    color: 'white',
+                    font: {                        
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -1085,21 +1099,21 @@ function vacunaImportanteCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [139,264,185,203,71,144,119,279,77,65],
+                data: [76.8,87.7,59.9,73.8,40.8,81.4,70.8,79.3,53.8,61.3],
             },                        
             {   
                 label: 'Ni de acuerdo/Ni en desacuerdo',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [33,23,63,47,57,25,33,43,51,16]          
+                data: [18.2,7.6,20.4,17.1,32.8,14.1,19.6,12.2,35.7,15.1]          
             },
             {
                 label: 'En desacuerdo',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [9,14,61,25,46,8,16,30,15,25],          
+                data: [5,4.7,19.7,9.1,26.4,4.5,9.5,8.5,10.5,23.6],          
                 
             },            
             ]
@@ -1117,15 +1131,15 @@ function vacunaImportanteCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1171,8 +1185,10 @@ function vacunaImportanteTotales(ctx){
             responsive: false,
             plugins: {
                 datalabels: {                                
-                    font: {
-                        size:18,
+                    color: 'white',
+                    font: {                        
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -1244,21 +1260,21 @@ function medidasControlCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [121,200,134,167,83,102,64,197,50,57],
+                data: [66.9,66.4,43.4,60.7,47.7,57.6,38.1,56,35,53.8],
             },                        
             {   
                 label: 'Ni de acuerdo/Ni en desacuerdo',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [16,46,48,33,21,20,23,41,10,7]          
+                data: [8.8,15.3,15.5,12,12.1,11.3,13.7,11.6,7,6.6]          
             },
             {
                 label: 'En desacuerdo',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [44,55,127,75,70,55,81,114,83,42],          
+                data: [24.3,18.3,41.1,27.3,40.2,31.1,48.2,32.4,58,39.6],          
                 
             },            
             ]
@@ -1276,15 +1292,15 @@ function medidasControlCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1330,8 +1346,10 @@ function medidasControlTotales(ctx){
             responsive: false,
             plugins: {
                 datalabels: {                                
-                    font: {
-                        size:18,
+                    color: 'white',
+                    font: {                        
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -1402,21 +1420,21 @@ function recibioInfoCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [177,299,303,270,173,177,162,340,143,104],
+                data: [97.8,99.3,98.1,98.2,99.4,100,96.4,96.6,100,98.1],
             },                        
             {   
                 label: 'No',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [4,1,5,5,1,0,6,12,0,2]          
+                data: [2.2,0.3,1.6,1.8,0.6,0,3.6,3.4,0,1.9]          
             },
             {
                 label: 'No responde',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [0,1,1,0,0,0,0,0,0,0],          
+                data: [0,0.3,0.3,0,0,0,0,0,0,0],          
                 
             },            
             ]
@@ -1434,15 +1452,15 @@ function recibioInfoCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1491,9 +1509,10 @@ function recibioInfoTotales(ctx){
                     anchor: 'center',
                     align: 'chartArea',
                     formatter: Math.round,
-                    
+                    color: 'white',
                     font: {                        
-                        size:18,
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -1588,11 +1607,11 @@ function origenInfoVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por medio de información', 
+                    //text: 'Datos agrupados por medio de información', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1631,21 +1650,21 @@ function mensajeDesanimoCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [171,279,273,252,150,166,155,295,135,93],
+                data: [94.5,92.7,88.3,91.6,86.2,93.8,92.3,83.8,94.4,87.7],
             },                        
             {   
                 label: 'No',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [10,21,36,23,22,10,13,50,8,13]          
+                data: [5.5,7,11.7,8.4,12.6,5.6,7.7,14.2,5.6,12.3]          
             },
             {
                 label: 'No responde',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [0,1,0,0,2,1,0,7,0,0],          
+                data: [0,0.3,0,0,1.1,0.6,0,2,0,0],          
                 
             },            
             ]
@@ -1663,15 +1682,15 @@ function mensajeDesanimoCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1720,9 +1739,10 @@ function mensajeDesanimoTotales(ctx){
                     anchor: 'center',
                     align: 'chartArea',
                     formatter: Math.round,
-                    
+                    color: 'white',
                     font: {                        
-                        size:18,
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -1819,11 +1839,11 @@ function origenDesanimoVacunaTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por medio de información', 
+                    //text: 'Datos agrupados por medio de información', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1879,8 +1899,10 @@ function deseoOrigenInfoTotales(ctx){
                     anchor: 'end',                    
                     position: 'chartArea',
                     formatter: Math.round,
-                    font: {
+                    
+                    font: {                        
                         size:14,
+                        
                     },
                     formatter: (value, ctx) => {                   
                     let percentage = (value*100 / (2186)).toFixed(2)+"%";
@@ -1889,11 +1911,11 @@ function deseoOrigenInfoTotales(ctx){
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por medio de información', 
+                    //text: 'Datos agrupados por medio de información', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -1931,21 +1953,21 @@ function recomedaraVacunaCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [154,258,198,215,124,151,128,259,128,70],
+                data: [85.1,85.7,64.1,78.2,71.3,85.3,76.2,73.6,89.5,66],
             },                        
             {   
                 label: 'No',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [11,16,62,40,26,20,22,67,12,33]          
+                data: [6.1,5.3,20.1,14.5,14.9,11.3,13.1,19,8.4,31.1]          
             },
             {
                 label: 'No sabe',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [15,17,47,20,24,6,18,25,3,3],          
+                data: [8.3,5.6,15.2,7.3,13.8,3.4,10.7,7.1,2.1,2.8],          
                 
             },            
             {
@@ -1953,7 +1975,7 @@ function recomedaraVacunaCiudades(ctx){
                 backgroundColor:  'rgba(255, 206, 86, 0.5)',
                 borderColor: 'rgba(255, 206, 86, 1)',
                 borderWidth: 1,
-                data: [1,10,2,0,0,0,0,1,0,0],
+                data: [0.6,3.3,0.6,0,0,0,0,0.3,0,0],
             },            
             ]
         },
@@ -1970,15 +1992,15 @@ function recomedaraVacunaCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -2027,9 +2049,10 @@ function recomedaraVacunaTotales(ctx){
                     anchor: 'center',
                     align: 'chartArea',
                     formatter: Math.round,
-                    
+                    color: 'white',
                     font: {                        
-                        size:18,
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -2099,21 +2122,21 @@ function lugarVacunaCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [63,18,58,27,11,9,18,80,36,17],
+                data: [34.8,6,18.8,9.8,6.3,5.1,10.7,22.7,25.2,16],
             },                        
             {   
                 label:  'Hospital/centro de salud',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [31,196,136,146,110,84,65,102,90,47]          
+                data: [17.1,65.1,44,53.1,63.2,47.5,38.7,29,62.9,44.3]          
             },
             {
                 label: 'Campañas casa por casa',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [81,81,97,94,46,79,82,129,16,39],          
+                data: [44.8,26.9,31.4,34.2,26.4,44.6,48.8,36.6,11.2,36.8],          
                 
             },            
             {
@@ -2121,14 +2144,14 @@ function lugarVacunaCiudades(ctx){
                 backgroundColor:  'rgba(255, 206, 86, 0.5)',
                 borderColor: 'rgba(255, 206, 86, 1)',
                 borderWidth: 1,
-                data: [1,0,10,6,4,2,2,32,0,1],
+                data: [0.6,0,3.2,2.2,2.3,1.1,1.2,9.1,0,0.9],
             },            
             {
                 label: 'No responde',
                 backgroundColor:  'rgba(153, 102, 255, 0.5)',
                 borderColor: 'rgba(153, 102, 255, 1)',
                 borderWidth: 1,
-                data: [5,6,8,2,3,3,1,9,1,2],
+                data: [2.8,2,2.6,0.7,1.7,1.7,0.6,2.6,0.7,1.9],
             },            
             ]
         },
@@ -2145,15 +2168,15 @@ function lugarVacunaCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -2202,9 +2225,10 @@ function lugarVacunaTotales(ctx){
                     anchor: 'center',
                     align: 'chartArea',
                     formatter: Math.round,
-                    
+                    color: 'white',
                     font: {                        
-                        size:18,
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {
                         let sum = 0;
@@ -2275,21 +2299,21 @@ function seVacunaraCiudades(ctx){
                 backgroundColor:  'rgba(75, 192, 192, 0.5)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
-                data: [30,65,102,31,24,22,23,71,37,18],
+                data: [73.2,79.3,67.5,51.7,54.5,61.1,51.1,64.5,77.1,46.2],
             },                        
             {   
                 label: 'No',
                 backgroundColor:  'rgba(255, 159, 64, 0.5)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                data: [7,2,22,18,8,9,11,24,7,15]          
+                data: [17.1,2.4,14.6,30,18.2,25,24.4,21.8,14.6,38.5]          
             },
             {
                 label: 'No sabe',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor:   'rgba(255, 99, 132, 1)',                            
                 borderWidth: 1,
-                data: [4,13,26,11,12,5,11,15,4,6],          
+                data: [9.8,15.9,17.2,18.3,27.3,13.9,24.4,13.6,8.3,15.4],          
                 
             },            
             {
@@ -2297,7 +2321,7 @@ function seVacunaraCiudades(ctx){
                 backgroundColor:  'rgba(255, 206, 86, 0.5)',
                 borderColor: 'rgba(255, 206, 86, 1)',
                 borderWidth: 1,
-                data: [0,2,1,0,0,0,0,0,0,0],
+                data: [0,2.4,0.7,0,0,0,0,0,0,0],
             },            
             ]
         },
@@ -2314,15 +2338,15 @@ function seVacunaraCiudades(ctx){
                     font: {
                         size:13,
                     },
-                    
+                    formatter: (val) => (`${val}%`),             
                 }, 
                 title: {
                     display: true,
-                    text: 'Datos agrupados por ciudad', 
+                    //text: 'Datos agrupados por ciudad', 
                     font: {
                         size: 24,
                     },
-                    padding: 30,
+                    //padding: 30,
                 },
                 legend: {
                     position: "bottom"
@@ -2371,9 +2395,10 @@ function seVacunaraTotales(ctx){
                     anchor: 'center',
                     align: 'chartArea',
                     formatter: Math.round,
-                    
+                    color: 'white',
                     font: {                        
-                        size:18,
+                        size:20,
+                        weight: 'bold',
                     },
                     formatter: (value, ctx) => {                        
                     let percentage = (value*100 / 656).toFixed(2)+"%";
@@ -2409,6 +2434,7 @@ function seVacunaraTotales(ctx){
         }                    
     })
     $("#seVacunaraCiudades").hide();
+    
 }
 
 $("#btnSeVacunaraCiudades").on("click", function(){    
