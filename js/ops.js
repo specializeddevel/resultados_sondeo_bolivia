@@ -34,14 +34,14 @@ function varonesMujeresChart(ctx){
                             backgroundColor: 'rgba(54, 162, 235, 0.5)',
                             borderColor:   'rgb(54, 162, 235)',
                             borderWidth: 1,
-                            data: [8.1,13.5,13.9,12.2,8,8.4,7.9,16.2,6.4,5.3],
+                            data: [49.7,49.5,49.8,49.1,51.1,52.5,52.4,50.9,49.7,55.7],
                         },                        
                         {
                             label: 'Mujeres',
                             backgroundColor:  'rgba(255, 99, 132, 0.5)',
                             borderColor: 'rgb(255, 99, 132)',
                             borderWidth: 1,
-                            data: [8.4,14.1,14.4,13,7.9,7.8,7.4,16,6.7,4.4],          
+                            data: [50.3,50.5,50.2,50.9,48.9,47.5,47.6,49.1,50.3,44.3],          
                             
                         },
                     ]
