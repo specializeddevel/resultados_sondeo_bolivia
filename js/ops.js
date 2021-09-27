@@ -495,53 +495,36 @@ function animoVacunaTotales(ctx){
 
 function animoVacunaPalabras(ctx){
     
-                const palabras = [
-                     { key: 'miedo', value: 2085 },
-                     { key: 'desconfianza', value: 884 },
-                     { key: '"cuidar a mi familia"', value: 775 },
-                ];
-                const data = {
-                    /*labels: palabras.map((d) => d.key),
-                    datasets: [
-                        {
-                            label: '',
-                            data: palabras.map((d) => d.value / 10),
-                        },
-                    ],*/
-                    
-                };  
                 const chart = new Chart(ctx, {
                     type: 'wordCloud', 
-                    
+                     
+                   
                     //plugins: [ChartDataLabels],
                     data: {// text
-                        labels: ['Contagio', 'Soy de riesgo', 'Miedo al hospital', 'Familia', 'Dinero', 'Trabajo', 'Tramites', 'Responsabilidad social', 'Otras'],                        
+                        labels: ['RIESGO FAMILIA', 'MIEDO CONTAGIARME', 'REQUISITO TRABAJO...', 'MIEDO HOSPITAL', 'TODOS VACUNADOS', 'REQUISITO TRAMITES...', 'ENFERMEDAD BASE',  'SIN DINERO'],                        
                         datasets: [{
                             
-                            color: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)','rgba(75, 192, 192, 1)'],    
+                            color: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)'],    
                             
                             // size in pixel
-                            data: [67, 20, 31, 75, 20, 55, 31, 36, 20],
+                            data: [60, 45, 35, 30, 25, 20, 15, 10],
 
                         },],
                     },      
                     options: {
                         responsive: false,
-                                               title: {
+                       
+                        title: {
                             display: false,
                             text: 'Chart.js Word Cloud',
                         },
-                       
-                        }, 
-                    plugins: {
+                        plugins: {
                         legend: {
-
                             display: false,
-                                },
-                              
-
-                    
-                },  
+                        },
+                         tooltips: false,
+                    },
+                        }, 
                 });
                 
             }
@@ -623,10 +606,58 @@ function razonNoVacunaTotales(ctx){
             },          
         }                    
     })
-    //$("#animoVacunaPalabras").hide();
+    $("#razonNoVacunaPalabras").hide();
 }
 
+function razonNoVacunaPalabras(ctx){
+    
+                const chart = new Chart(ctx, {
+                    type: 'wordCloud', 
+                     
+                   
+                    //plugins: [ChartDataLabels],
+                    data: {// text
+                        labels: ['NO TIEMPO', 'NOinfo VACUNAS”', 'PREFIERO ESPERAR', 'NO CONFIO', 'EFECTOS NEGATIVOS', 'MEDICINAS NATURALES', 'MIEDO AGUJA', 'CONSEJOS', 'EMBARAZADA','ENFERMEDAD BASE','NO NECESITO','CAUSAR ENFERMEDADES','NO SE DONDE','RELIGION','CULTURALES','DIOXIDO DE CLORO','ESTOY CONTRA','NO EXITE'],                        
+                        datasets: [{
+                            
+                            color: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)'],    
+                            
+                            // size in pixel
+                            data: [90, 80, 70, 60, 55, 45, 45, 40, 35,30,25,20,15,10,10,10,10,10],
 
+                        },],
+                    },      
+                    options: {
+                        responsive: false,
+                       
+                        title: {
+                            display: false,
+                            text: 'Chart.js Word Cloud',
+                        },
+                        plugins: {
+                        legend: {
+                            display: false,
+                        },
+                         tooltips: false,
+                    },
+                        }, 
+                });
+                
+            }
+
+
+$("#btnRazonNoVacunaTotales").on("click", function(){    
+    $("#razonNoVacunaPalabras").hide();
+    $("#razonNoVacunaTotales").show();
+});
+
+$("#btnRazonNoVacunaPalabras").on("click", function(){    
+    
+    $("#razonNoVacunaPalabras").show();
+    $("#razonNoVacunaTotales").hide();       
+    razonNoVacunaPalabras(document.querySelector('#razonNoVacunaPalabras').getContext('2d'));
+    
+});
 
 
 function conocimientosVacunaTotales(ctx){
