@@ -617,7 +617,7 @@ function razonNoVacunaPalabras(ctx){
                    
                     //plugins: [ChartDataLabels],
                     data: {// text
-                        labels: ['NO TIEMPO', 'NOinfo VACUNAS”', 'PREFIERO ESPERAR', 'NO CONFIO', 'EFECTOS NEGATIVOS', 'MEDICINAS NATURALES', 'MIEDO AGUJA', 'CONSEJOS', 'EMBARAZADA','ENFERMEDAD BASE','NO NECESITO','CAUSAR ENFERMEDADES','NO SE DONDE','RELIGION','CULTURALES','DIOXIDO DE CLORO','ESTOY CONTRA','NO EXITE'],                        
+                        labels: ['NO TIEMPO', 'NOinfo VACUNAS', 'PREFIERO ESPERAR', 'NO CONFIO', 'EFECTOS NEGATIVOS', 'MEDICINAS NATURALES', 'MIEDO AGUJA', 'CONSEJOS', 'EMBARAZADA','ENFERMEDAD BASE','NO NECESITO','CAUSAR ENFERMEDADES','NO SE DONDE','RELIGION','CULTURALES','DIOXIDO DE CLORO','ESTOY CONTRA','NO EXITE'],                        
                         datasets: [{
                             
                             color: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)'],    
