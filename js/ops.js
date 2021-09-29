@@ -629,7 +629,9 @@ function razonNoVacunaPalabras(ctx){
                     },      
                     options: {
                         responsive: false,
-                       
+                        tooltips: {
+                            filter: false,
+                        },
                         title: {
                             display: false,
                             text: 'Chart.js Word Cloud',
@@ -638,7 +640,7 @@ function razonNoVacunaPalabras(ctx){
                         legend: {
                             display: false,
                         },
-                         tooltips: false,
+
                     },
                         }, 
                 });
